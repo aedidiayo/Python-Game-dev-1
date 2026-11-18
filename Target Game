@@ -1,0 +1,31 @@
+import pgzrun
+import random
+
+TITLE = "Shoot the Target"
+WIDTH = 500
+HEIGHT = 500
+msg = ""  # Variable to store msg on screen
+
+target = Actor('target')  # uses images/target.png
+
+def draw():
+    screen.clear()
+    screen.fill('black')
+    target.draw()  # to make target visible
+    screen.draw.text(msg, center=(250, 15), fontsize=30,
+                     color='red')  # to display msg on screen
+
+def place_target():
+    target.x = random.randint(100, WIDTH - 100)
+    target.y = random.randint(50, HEIGHT - 100)
+
+def on_mouse_down(pos):
+    global msg
+    if target.collidepoint(pos):
+        msg = "GOOD SHOT!"
+        place_target()
+    else:
+        msg = "You Missed the Shot. TRY AGAIN"
+
+place_target()
+pgzrun.go()
