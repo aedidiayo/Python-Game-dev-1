@@ -1,0 +1,35 @@
+import pgzrun
+import random
+WIDTH = 300
+HEIGHT = 300
+
+TITLE = "Shapes with pgzrun"
+def draw():
+    r = 255
+    g = 130
+    b = 50
+    width=WIDTH-90
+    height=HEIGHT-270
+
+    rect1=Rect((20,40),(width,height))
+    rect2=Rect((20,130),(width,height))
+    rect3=Rect((20,202),(width,height))
+
+    screen.draw.text("Rectangle",(50,15),color="orange")
+    
+    screen.draw.rect(rect1,(r,g,b))
+
+    screen.draw.text("circle",(0,14),color="blue")
+    screen.draw.filled_circle((100,100),20,(0,200,0))
+    screen.draw.circle((200,100),20,(235,255,200))
+
+    screen.draw.text("filled Rectangle",(50,170))
+    screen.draw.filled_rect(rect2,(r,g,b))
+    screen.draw.textbox("i m text box",rect3)
+
+
+
+
+
+
+pgzrun.go()
