@@ -14,11 +14,32 @@ total_time=0
 end_time=0
 
 number_of_satellite=10
+
 def create_satellites():
-    pass
+    global start_time
+    for count in range(0, number_of_satellite):
+        satellite=Actor("Satellite")
+        satellite.pos=random.randint(40,WIDTH-40),random.randint(40,HEIGHT-40)
+        satellite.append(satellite)
+    start_time=time()
+
+        
 
 def draw():
-    pass
+    global total_time
+    screen.blit("Background",(0,0))
+    number=1
+    for satellite in satellites:
+        screen.draw.text(str(number),(satellite.pos[0],satellite.pos[1]+50))
+        satellite.draw()
+        number=number+1
+    for line in lines:
+        screen.draw.line(line[0],line[1],(255,255,255))
+        if next_satellite < number_of_satellite:
+            total_time=time()-start_time
+            screen.draw.text(str(round(total_time,1)),(10,10),fontsize=30)
+        else:
+            screen.draw.text(str(round(total_time,1)),(10,10),fontsize=30)
 
 def update():
     pass
